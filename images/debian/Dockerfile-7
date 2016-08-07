@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM debian:wheezy
 
 #
 # v1 dex-api
@@ -12,7 +12,7 @@ RUN mkdir -p $HOME $WORKSPACE
 VOLUME /dex
 
 #
-# alpine image
+# debian image
 #
 
-CMD echo "ALPINE_RELEASE=$(cat /etc/alpine-release)" ; printenv
+CMD echo "DEBIAN_RELEASE=$(cat /etc/debian_version)" ; printenv

@@ -15,4 +15,4 @@ VOLUME /dex
 # alpine image
 #
 
-CMD ["printenv"]
+CMD echo "ALPINE_RELEASE=$(cat /etc/alpine-release)" ; printenv
