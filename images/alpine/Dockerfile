@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.4
 
 #
 # v1 dex-api
@@ -12,12 +12,7 @@ RUN mkdir -p $HOME $WORKSPACE
 VOLUME /dex
 
 #
-# nodejs image
+# alpine image
 #
 
-RUN apk add --update \
-    nodejs \
-    && rm -rf /var/cache/apk/*
-
-ENTRYPOINT ["node"]
-CMD ["--help"]
+CMD ["printenv"]
