@@ -3,16 +3,11 @@ FROM alpine:3.2
 #
 # v1 dex-api
 #
-ENV \
-  DEX_API="v1" \
-  HOME="/dex/home" \
-  WORKSPACE="/dex/workspace"
 
-RUN mkdir -p $HOME $WORKSPACE
-VOLUME /dex
+LABEL org.dockerland.dex.api="v1"
 
 #
 # alpine image
 #
 
-CMD ["printenv"]
+CMD echo "ALPINE_RELEASE=$(cat /etc/alpine-release)" ; printenv

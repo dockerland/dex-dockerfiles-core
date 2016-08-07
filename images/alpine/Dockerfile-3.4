@@ -1,0 +1,14 @@
+FROM alpine:3.4
+
+#
+# v1 dex-api
+#
+
+LABEL org.dockerland.dex.api="v1"
+LABEL org.dockerland.dex.flags=-it --net host --cpuset-cpus 0 --memory 512mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME/Downloads:/root/Downloads -v $HOME/.config/google-chrome/:/data --device /dev/snd"
+
+#
+# alpine image
+#
+
+CMD echo "ALPINE_RELEASE=$(cat /etc/alpine-release)" ; printenv
