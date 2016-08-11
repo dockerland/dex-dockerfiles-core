@@ -5,7 +5,14 @@ FROM alpine:3.4
 #
 
 LABEL org.dockerland.dex.api="v1"
-LABEL org.dockerland.dex.flags=-it --net host --cpuset-cpus 0 --memory 512mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME/Downloads:/root/Downloads -v $HOME/.config/google-chrome/:/data --device /dev/snd"
+
+# defaults you may override, see <@TODO URL>
+# LABEL org.dockerland.dex.home="~"
+# LABEL org.dockerland.dex.workspace="\$(pwd)"
+# LABEL org.dockerland.dex.docker_flags="-i \$DEX_X11_FLAGS"
+# LABEL org.dockerland.dex.docker_entrypoint=""
+# LABEL org.dockerland.dex.docker_cmd=""
+
 
 #
 # alpine image
