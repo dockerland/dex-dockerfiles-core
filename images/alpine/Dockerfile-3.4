@@ -1,20 +1,23 @@
 FROM alpine:3.4
 
 #
-# v1 dex-api
-#
-
-LABEL org.dockerland.dex.api="v1"
-
-# defaults you may override, see <@TODO URL>
-#
-# LABEL org.dockerland.dex.home="~"
-# LABEL org.dockerland.dex.workspace="\$(pwd)"
-# LABEL org.dockerland.dex.docker_flags="-i \$DEX_X11_FLAGS"
-#
-
-#
-# alpine image
+# dex alpine:latest image
 #
 
 CMD echo "ALPINE_RELEASE=$(cat /etc/alpine-release)" ; printenv
+
+
+#
+# v1 dex-api
+#
+
+LABEL \
+  org.dockerland.dex.api="v1"
+#  org.dockerland.dex.docker_devices="shm tty"  (bind mounts /dev/shm|tty) \
+#  org.dockerland.dex.docker_envars="LANG TERM" (passthru LANG & TERM) \
+#  org.dockerland.dex.docker_flags="-it"        (interactive tty) \
+#  org.dockerland.dex.docker_groups="tty"       (adds 'tty' to container user) \
+#  org.dockerland.dex.docker_home="~"           (bind mount HOME to real home) \
+#  org.dockerland.dex.docker_volumes="/etc:/dex/etc:ro" \
+#  org.dockerland.dex.docker_workspace="/"      (bind mount root to CWD) \
+#  org.dockerland.dex.window="true"             (apply window/X11 flags)
